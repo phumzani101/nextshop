@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const path = require("path");
 
-module.exports = nextConfig
+const nextConfig = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, "src", "styles")],
+    prependData: `@import "./base.scss`,
+  },
+  experimental: {
+    serverComponentsExternalPackages: ["mongoose"],
+  },
+};
+
+module.exports = nextConfig;
